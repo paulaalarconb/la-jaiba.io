@@ -1,0 +1,17 @@
+{
+  "name": "la-jaiba",
+  "version": "0.1.0",
+  "private": true,
+  "description": "La Jaiba: juego de acertijos sobre la vida de Javiera Carrera. Capítulo 1.",
+  "scripts": {
+    "servir": "npx http-server www -p 8080 -c-1",
+    "android:agregar": "npx cap add android",
+    "android:copiar": "npx cap sync android",
+    "android:abrir": "npx cap open android"
+  },
+  "devDependencies": {
+    "@capacitor/android": "6.1.2",
+    "@capacitor/cli": "6.1.2",
+    "@capacitor/core": "6.1.2"
+  }
+}

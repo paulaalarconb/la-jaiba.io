@@ -1,0 +1,8 @@
+{
+  "appId": "cl.lajaiba.juego",
+  "appName": "La Jaiba",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#1a2340"
+  }
+}

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>La Jaiba</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#1a2340">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Nunito:wght@600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="game" width="480" height="270" aria-label="La casa de los Carrera"></canvas>
+
+  <div id="hud" hidden>
+    <div class="hud-left">
+      <button class="hbtn" id="btnNote" type="button" aria-label="Ver la nota actual"><img src="assets/item_nota.png" alt=""><span>Nota</span></button>
+      <div class="slots" id="slots"></div>
+    </div>
+    <div class="hud-right">
+      <button class="hbtn" id="btnHint" type="button" aria-label="Pedir una pista a Pancho">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M5 2h2v3H5zM9 2h2v3H9zM2 5h2v3H2zM12 5h2v3h-2zM5 7h6v2h2v4h-2v1H5v-1H3V9h2z"/></svg><span>Pista</span></button>
+      <button class="hbtn" id="btnDiary" type="button" aria-label="Abrir el diario">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M3 1h9v1h1v13H3v-1H2V2h1zm1 2v10h7V3zm1 1h5v1H5zm0 2h5v1H5zm0 2h3v1H5z"/></svg><span>Diario</span></button>
+      <button class="hbtn icon" id="btnSound" type="button" aria-label="Sonido"></button>
+    </div>
+  </div>
+
+  <div id="toast" hidden></div>
+
+  <div id="dialog" hidden>
+    <canvas id="portrait" width="32" height="32"></canvas>
+    <div class="dlg-body">
+      <div class="dlg-name" id="dlgName"></div>
+      <p class="dlg-text" id="dlgText"></p>
+    </div>
+    <div class="dlg-next" aria-hidden="true">▸</div>
+  </div>
+
+  <div class="modal" id="note" hidden>
+    <div class="paper">
+      <div class="paper-head"><img src="assets/item_nota.png" alt=""><h2 id="noteTitle">Nota de tus hermanos</h2></div>
+      <p class="paper-intro" id="noteIntro"></p>
+      <p class="riddle" id="noteRiddle"></p>
+      <p class="paper-sign" id="noteSign"></p>
+      <button class="big" id="noteClose" type="button">A buscar</button>
+    </div>
+  </div>
+
+  <div class="modal" id="diary" hidden>
+    <div class="book">
+      <div class="book-head"><h2>Diario de Javiera</h2><button class="x" id="diaryClose" type="button" aria-label="Cerrar">✕</button></div>
+      <div class="book-pages" id="diaryList"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="puzzle" hidden>
+    <div class="study">
+      <h2>La tertulia de papá</h2>
+      <p class="study-intro">Te escondes detrás de la puerta entreabierta y escuchas a los adultos. Toca una palabra y luego el espacio donde va.</p>
+      <ol class="sentences" id="sentences"></ol>
+      <div class="tiles" id="tiles"></div>
+      <p class="study-msg" id="studyMsg" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="screen" id="title">
+    <div class="title-art">
+      <canvas id="titleSprite" width="64" height="48"></canvas>
+    </div>
+    <div class="title-text">
+      <h1>La Jaiba</h1>
+      <p class="kicker">Capítulo 1 · La casa de los Carrera</p>
+      <p class="place">Santiago de Chile, verano de 1795</p>
+      <div class="title-btns">
+        <button class="big" id="btnPlay" type="button">Jugar</button>
+        <button class="big alt" id="btnContinue" type="button" hidden>Continuar</button>
+      </div>
+      <div class="mode" role="radiogroup" aria-label="Dificultad">
+        <button type="button" class="mode-btn" data-mode="facil" aria-pressed="true">Fácil</button>
+        <button type="button" class="mode-btn" data-mode="dificil" aria-pressed="false">Difícil</button>
+      </div>
+      <p class="mode-help" id="modeHelp">Los objetos brillan de vez en cuando para ayudarte.</p>
+    </div>
+  </div>
+
+  <div class="screen" id="end" hidden>
+    <div class="end-card">
+      <p class="kicker">Capítulo 1 completado</p>
+      <h1>La casa de los Carrera</h1>
+      <div class="relic">
+        <img src="assets/item_llave.png" alt="">
+        <div><b>Reliquia: la llave del despacho</b><p>Esa noche Javiera escuchó por primera vez a los adultos hablar de política. Quince años después, su propia casa sería un centro de reunión de los patriotas.</p></div>
+      </div>
+      <ul class="stats" id="stats"></ul>
+      <div class="medals" id="medals"></div>
+      <div class="title-btns">
+        <button class="big" id="btnAgain" type="button">Jugar otra vez</button>
+      </div>
+      <p class="soon">Próximamente: Capítulo 2 · Viuda a los 19</p>
+    </div>
+  </div>
+
+  <div id="rotate"><div class="phone" aria-hidden="true"></div><p>Gira tu teléfono o tableta para jugar</p></div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
