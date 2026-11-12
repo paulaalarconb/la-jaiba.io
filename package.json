@@ -10,7 +10,7 @@
     "android:abrir": "npx cap open android"
   },
   "devDependencies": {
-    "@capacitor/android": "6.1.2",
+    "@capacitor/android": "6.2.2",
     "@capacitor/cli": "6.1.2",
     "@capacitor/core": "6.1.2"
   }
